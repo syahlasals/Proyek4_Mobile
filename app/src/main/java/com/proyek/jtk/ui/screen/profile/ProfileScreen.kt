@@ -17,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import androidx.compose.ui.draw.clip
 
 @Composable
 fun ProfileScreen(
@@ -56,7 +57,9 @@ fun ProfileScreen(
                     AsyncImage(
                         model = profileUploaded,
                         contentDescription = "Uploaded Profile Picture",
-                        modifier = Modifier.fillMaxSize(),
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .clip(CircleShape), // Pastikan gambar di-clip dalam bentuk lingkaran
                         contentScale = ContentScale.Crop
                     )
                 } else {
